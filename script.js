@@ -1,23 +1,19 @@
 async function getData() {
     let textBoxElem = document.getElementById("textBox");
     let city = textBoxElem.value;
-    // console.log(city);
-    let API = ` http://api.weatherapi.com/v1/current.json?key=5dd384b1c6af4c8ab6b52035260904&q=${city}`;
 
+    let API = `https://api.weatherapi.com/v1/current.json?key=5dd384b1c6af4c8ab6b52035260904&q=${city}`;
 
     try {
         let res = await axios.get(API);
-        display(res.data)
-
-
+        display(res.data);
     }
     catch (e) {
         console.log(e);
-        let modal=new bootstrap.Modal(document.getElementById("staticBackdrop"));
+        let modal = new bootstrap.Modal(document.getElementById("staticBackdrop"));
         modal.show();
     }
 }
-
 
 function display(d) {
     console.log(d);
